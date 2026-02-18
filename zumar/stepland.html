@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hero Stepland</title>
+  <style>
+    body {
+      background: #050816;
+      color: #f5f5f5;
+      font-family: system-ui, sans-serif;
+    }
+    header {
+      background: rgba(5, 8, 22, 0.95);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    nav a {
+      color: #fff !important;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .hero img {
+      max-width: 100%;
+      border-radius: 1rem;
+      margin-bottom: 2rem;
+    }
+    .section-title {
+      margin-top: 3rem;
+      margin-bottom: 1.5rem;
+      font-size: 2rem;
+      text-align: center;
+    }
+    .character-card {
+      text-align: center;
+      padding: 1rem;
+    }
+    .character-card img {
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 50%;
+      transition: transform 0.2s ease;
+    }
+    .character-card a:hover img {
+      transform: scale(1.05);
+    }
+    footer {
+      margin-top: 4rem;
+      padding: 2rem 1rem;
+      background-color: #050816;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      color: #aaa;
+    }
+    .social-icons img {
+      width: 24px;
+      margin: 0 8px;
+    }
+    a {
+      color: #f5f5f5;
+      text-decoration: none;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, sans-serif;
+    }
+
+    .hero-section {
+        background-image: url('imagenes/fonstepland.png');
+        background-size: cover;
+        background-position: center;
+        color: #ffffff;
+        text-align: center;
+        padding: 200px 0;
+    }
+
+    .hero-section h1 {
+        font-size: 3rem;
+        font-weight: bold;
+    }
+
+    .hero-section p {
+        font-size: 1.2rem;
+    }
+
+    .btn-primary {
+        background-color: green;
+        border-color: green;
+        padding: 0.75rem 1.5rem;
+        font-size: 1.25rem;
+    }
+
+    .stepland-promo {
+        padding: 4rem 1rem;
+        background-color: #050816;
+        color: #f5f5f5;
+        font-family: system-ui, sans-serif;
+    }
+
+    .promo-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2rem;
+    }
+    
+    .promo-box {
+        background-color: #0b0f2a;
+        border-radius: 1rem;
+        padding: 2rem;
+        text-align: center;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        transition: transform 0.2s ease;
+    }
+
+    .promo-box:hover {
+        transform: scale(1.03);
+    }
+    
+    .promo-box img {
+        width: 100px;
+        margin-bottom: 1rem;
+    }
+
+    .promo-box h3 {
+        font-size: 1.2rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .promo-box p {
+        font-size: 0.95rem;
+        color: #ccc;
+    }
+
+    .subscripcio-hero {
+        position: relative;
+        width: 100%;
+        height: 80vh;
+        background-image: url('imagenes/fonstepland.png');
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .subscripcio-hero::after {
+        content: "";
+        position: absolute;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        background: rgba(0, 0, 0, 0.4); /* capa fosca per llegibilitat */
+        z-index: 1;
+    }
+
+    .subscripcio-contenidor {
+        position: relative;
+        z-index: 2;
+        background: rgba(255, 255, 255, 0.9);
+        padding: 2rem;
+        border-radius: 1rem;
+        text-align: center;
+        max-width: 600px;
+        width: 90%;
+    }
+
+    .subscripcio-contenidor h2 {
+        font-size: 1.5rem;
+        color: #050816;
+        margin-bottom: 1.5rem;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    input[type="email"] {
+        padding: 0.8rem;
+        font-size: 1rem;
+        border: 1px solid #ccc;
+        border-radius: 999px;
+        width: 100%;
+    }
+
+    button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        padding: 0.8rem 1.2rem;
+        background-color: #00ff99;
+        color: #050816;
+        border: none;
+        border-radius: 999px;
+        font-weight: bold;
+        text-transform: uppercase;
+        cursor: pointer;
+    }
+
+    button img {
+        width: 20px;
+        height: 20px;
+    }
+
+    footer {
+        margin-top: 4rem;
+        padding: 1.5rem;
+        text-align: center;
+        color: white;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+  </style>
+</head>
+<body>
+
+<!--Hero-->
+    <section class="hero-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <img src="imagenes/icono.stepland.png" alt="" width="320" height="auto">
+                <h1>Dale vida propia a tus hábitos</h1>
+                <p>¿Te imaginas darle vida a un mundo que crece con tu esfuerzo? Camina, medita, lee... y mira cómo evoluciona tu aldea en Stepland.</p>
+                <a href="#" class="btn btn-primary">¡Únete a la Lista de Espera!</a>
+            </div>
+        </div>
+    </div>
+</section>
+<br>
+<!--Hero-->
+
+<!--Parte desarollo-->
+<section class="stepland-promo">
+  <div class="container">
+    <h2 class="text-center mb-5">Sé parte del desarrollo y desbloquea contenido limitado</h2>
+
+    <div class="promo-grid">
+
+      <!-- Bloque 1 -->
+      <div class="promo-box">
+        <img src="imagenes/1.png" alt="Personaje agua"/>
+        <br>
+        <h3>Tus decisiones moldearán Stepland</h3>
+        <p>Te enviaremos preguntas y podrás decidir qué te gusta más. ¡Lo verás implementado en el juego!</p>
+      </div>
+
+      <!-- Bloque 2 -->
+      <div class="promo-box">
+        <img src="imagenes/2.png" alt="Personaje fuego" />
+        <h3>Participa en la demo y obtén contenido exclusivo</h3>
+        <p>Prueba la demo, da tu opinión y ganarás una mascota para Stepland que sólo los/as que entréis ahora la tendréis.</p>
+      </div>
+
+      <!-- Bloque 3 -->
+      <div class="promo-box">
+        <img src="imagenes/3.png" alt="Personaje inversión" />
+        <br>
+        <h3>Te informaremos de las rondas de inversión</h3>
+        <p>Cuando abramos ronda de inversión, tendrás la oportunidad de comprar acciones y ser parte del estudio.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+<!--Parte desarollo-->
+
+<!--Subscríbete-->
+<section class="subscripcio-hero">
+  <div class="subscripcio-contenidor">
+    <h2>El mejor momento para empezar a cuidarse ya ha pasado.<br>El segundo mejor momento es ahora.</h2>
+    <form action="#" method="POST">
+      <input type="email" placeholder="ejemplo@gmail.com" required />
+      <button type="submit">
+        <span>Enviar</span>
+      </button>
+    </form>
+  </div>
+</section>
+<!--Subscríbete-->
+
+<section class="container mt-5">
+  <h2 class="section-title">Nuestro equipo</h2>
+  <p class="text-center mb-4" style="text-align: center;">¡Todas las personas que confían y forman parte de este proyecto!</p>
+  <div class="row g-4 justify-content-center">
+
+    <!-- Personajes con enlace a LinkedIn -->
+    <div class="col-md-3 character-card">
+      <a href="https://www.linkedin.com/in/karim-casado/" target="_blank">
+        <img src="imagenes/person1.png" alt="Karim Casado" />
+        <h5 class="mt-2">Karim Casado</h5>
+        <p>CEO</p>
+      </a>
+    </div>
+
+    <div class="col-md-3 character-card">
+      <a href="https://linkedin.com/in/sergiperello" target="_blank">
+        <img src="imagenes/person2.png" alt="Sergi Perelló" />
+        <h5 class="mt-2">Sergi Perelló</h5>
+        <p>CTO</p>
+      </a>
+    </div>
+
+    <div class="col-md-3 character-card">
+      <a href="https://linkedin.com/in/ahtesam" target="_blank">
+        <img src="imagenes/person3.png" alt="Ahtesam Muhammad" />
+        <h5 class="mt-2">Ahtesam Muhammad</h5>
+        <p>Full Stack Developer</p>
+      </a>
+    </div>
+
+    <div class="col-md-3 character-card">
+      <a href="https://linkedin.com/in/poppy" target="_blank">
+        <img src="imagenes/person4.png" alt="Ana Poppy" />
+        <h5 class="mt-2">Ana "Poppy"</h5>
+        <p>Concept Artist</p>
+      </a>
+    </div>
+
+    <div class="col-md-3 character-card">
+      <a href="https://linkedin.com/in/rutgil" target="_blank">
+        <img src="imagenes/person5.png" alt="Rut Gil Soriano" />
+        <h5 class="mt-2">Rut Gil Soriano</h5>
+        <p>3D Artist</p>
+      </a>
+    </div>
+
+    <div class="col-md-3 character-card">
+      <a href="https://linkedin.com/in/matiasoliver" target="_blank">
+        <img src="imagenes/person6.png" alt="Matias Oliver" />
+        <h5 class="mt-2">Matias Oliver</h5>
+        <p>3D Artist</p>
+      </a>
+    </div>
+
+    <div class="col-md-3 character-card">
+      <a href="https://linkedin.com/in/danielmateos" target="_blank">
+        <img src="imagenes/person7.png" alt="Daniel Mateos" />
+        <h5 class="mt-2">Daniel Mateos</h5>
+        <p>Narrative Designer</p>
+      </a>
+    </div>
+
+  </div>
+
+</section>
+
+<!--Footer-->
+<footer class="mt-5 text-center text-light py-4" style="background-color: #050816; border-top: 1px solid rgba(255,255,255,0.1);">
+    <h2 class="mb-2">Conexión</h2>
+    <p class="mb-3">Descubre cómo mejorar tu vida jugando.</p>
+
+    <!-- Xarxes socials -->
+    <div class="mb-3">
+        <a href="https://facebook.com/somnigamestudios" target="_blank" rel="noopener noreferrer" class="mx-2">
+            <img src="imagenes/facebook.png" alt="Facebook" width="24">
+        </a>
+        <a href="https://instagram.com/somnigamestudios" target="_blank" rel="noopener noreferrer" class="mx-2">
+            <img src="imagenes/instagram.png" alt="Instagram" width="24">
+        </a>
+        <a href="https://tiktok.com/@somnigamestudios" target="_blank" rel="noopener noreferrer" class="mx-2">
+            <img src="imagenes/tiktok.png" alt="TikTok" width="24">
+        </a>
+        <a href="https://x.com/somnigamestudios" target="_blank" rel="noopener noreferrer" class="mx-2">
+            <img src="imagenes/x.png" alt="X" width="24">
+        </a>
+    </div>
+
+    <!-- Contacte -->
+    <p class="mb-1">EQUIPO · <a href="mailto:contacto@somnigamestudios.com" class="text-decoration-none text-light">contacto@somnigamestudios.com</a></p>
+    <br><br>
+    <p class="mb-0">© <span id="year"></span>. All rights reserved.</p>
+</footer>
+
+<script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+<!--Footer-->
+
+</body>
+</html>
